@@ -1,136 +1,188 @@
 import Image from "next/image";
 import Link from "next/link";
-import { IoArrowForward, IoSparklesOutline } from "react-icons/io5";
+import { IoArrowForward, IoArrowDown, IoPlanetOutline } from "react-icons/io5";
 import type { CharacterResponse } from "@/types/character";
 import { Header, Footer } from "./site-shell";
 import Explorer from "./explorer";
 import Carousel from "./carousel";
 import CharacterCard from "./character-card";
+import CharacterSpotlight from "./character-spotlight";
+import PortalJump from "./portal-jump";
 
 export default function HomeContent({ data }: { data: CharacterResponse }) {
   return (
     <div
-      className="portal-site antialiased selection:bg-lime-300 selection:text-black"
+      className="portal-site portal-v2 antialiased selection:bg-lime-300 selection:text-black"
       id="top"
     >
       <Header />
       <main>
-        <section className="hero shell">
-          <div className="hero-copy">
-            <p className="eyebrow">
-              <span className="live-dot" /> TRANSMISIÓN DESDE LA DIMENSIÓN C-137
-            </p>
-            <h1>
-              El multiverso.
+        <section className="cinema-hero" aria-labelledby="hero-title">
+          <div className="cosmic-scene" aria-hidden="true">
+            <Image
+              src="/images/portal-universe.webp"
+              alt=""
+              fill
+              sizes="100vw"
+              loading="eager"
+              fetchPriority="high"
+              className="cosmic-image"
+            />
+            <div className="cosmic-shade" />
+            <div className="portal-halo" />
+            <div className="cosmic-grain" />
+          </div>
+          <div className="shell cinema-content">
+            <div className="hero-signal">
+              <span className="live-dot" />
+              <span>SEÑAL ESTABLE</span>
+              <span className="signal-divider" /> DIMENSIÓN C-137
+            </div>
+            <p className="hero-kicker">RICK & MORTY / ARCHIVO DEL MULTIVERSO</p>
+            <h1 id="hero-title">
+              Fuera de
               <br />
-              Ahora, <em>a tu alcance.</em>
+              lo{" "}
+              <span className="hero-word">
+                normal
+                <span className="word-star" aria-hidden="true">
+                  ✳
+                </span>
+              </span>
+              <span className="hero-period">.</span>
             </h1>
-            <p className="hero-description">
-              Conoce a las mentes brillantes, criaturas extrañas y héroes
-              improbables de Rick y Morty. Tu próximo viaje empieza con un
-              personaje.
+            <p className="cinema-description">
+              Un científico. Un nieto. Infinitas formas de romper la realidad.
+              Cruza el portal y descubre a quienes habitan el caos.
             </p>
             <div className="hero-actions">
-              <a className="button button-lime" href="#explorar">
-                Explorar personajes <IoArrowForward />
+              <a href="#explorar" className="button button-lime">
+                Entrar al multiverso <IoArrowForward />
               </a>
-              <Link className="button button-outline" href="/personajes/1">
-                Conoce a Rick <span aria-hidden="true">↗</span>
-              </Link>
+              <PortalJump pages={data.info.pages} />
             </div>
-            <div className="hero-caption">
-              <IoSparklesOutline />
-              <span>Sin nave espacial. Sin límites. Solo curiosidad.</span>
+            <div className="hero-proof">
+              <div className="proof-avatars">
+                {data.results.slice(0, 4).map((character) => (
+                  <Image
+                    key={character.id}
+                    src={`/images/crew/${character.id}.jpg`}
+                    alt=""
+                    width={36}
+                    height={36}
+                  />
+                ))}
+              </div>
+              <p>
+                <strong>{data.info.count} historias por descubrir.</strong>
+                <span>La tuya empieza aquí.</span>
+              </p>
             </div>
           </div>
-          <div className="hero-art" aria-label="Personajes de Rick y Morty">
-            <div className="portal-ring ring-one" />
-            <div className="portal-ring ring-two" />
-            <span className="orbit-label">COORDENADAS · C-137</span>
-            <div className="hero-portrait portrait-rick">
-              <Image
-                src={data.results[0].image}
-                alt="Rick Sanchez"
-                width={300}
-                height={300}
-                loading="eager"
-              />
+          <div className="portal-coordinate">
+            <span>↗</span>
+            <div>
+              <small>PORTAL ACTIVO</small>
+              <strong>DESTINO: DESCONOCIDO</strong>
             </div>
-            <div className="hero-portrait portrait-morty">
-              <Image
-                src={data.results[1].image}
-                alt="Morty Smith"
-                width={300}
-                height={300}
-              />
-            </div>
-            <div className="dimension-tag">
-              <i />
-              <div>
-                <small>DESTINO ACTUAL</small>
-                <strong>Earth · C-137</strong>
-              </div>
-              <span>↗</span>
-            </div>
-            <span className="hero-star star-one">✳</span>
-            <span className="hero-star star-two">+</span>
+            <i />
+          </div>
+          <div className="hero-bottom shell">
+            <a href="#protagonistas">
+              SCROLL PARA EXPLORAR <IoArrowDown />
+            </a>
+            <span>
+              35° 12′ N · 137° 00′ E <span aria-hidden="true">✦</span> MÁS ALLÁ
+              DE LO POSIBLE
+            </span>
           </div>
         </section>
-        <div className="metrics-band">
-          <div className="shell metrics">
+        <div className="dimension-marquee" aria-hidden="true">
+          <div>
+            {[0, 1].map((index) => (
+              <span key={index}>
+                WUBBA LUBBA DUB DUB <b>✳</b> NO HAY UN PLANETA B <b>✳</b>{" "}
+                EXPLORA LO IMPOSIBLE <b>✳</b>{" "}
+              </span>
+            ))}
+          </div>
+        </div>
+        <section className="universe-intro shell" id="protagonistas">
+          <div>
+            <span className="section-number">/ ARCHIVO 137</span>
+            <h2>
+              El universo es enorme.
+              <br />
+              <span>Tu curiosidad, también.</span>
+            </h2>
+          </div>
+          <div className="universe-stats">
             <div>
               <strong>
                 {data.info.count}
-                <span>+</span>
+                <em>+</em>
               </strong>
-              <p>PERSONAJES ÚNICOS</p>
+              <span>PERSONAJES</span>
             </div>
             <div>
               <strong>∞</strong>
-              <p>UNIVERSOS POR EXPLORAR</p>
+              <span>POSIBILIDADES</span>
             </div>
             <div>
               <strong>01</strong>
-              <p>PORTAL PARA DESCUBRIRLOS</p>
+              <span>PUNTO DE PARTIDA</span>
             </div>
-            <p className="metrics-note">
-              Lo normal es relativo.
-              <br />
-              <em>Lo extraordinario está aquí.</em>
-            </p>
           </div>
-        </div>
+        </section>
+        <CharacterSpotlight characters={data.results.slice(0, 5)} />
         <section className="featured shell">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">LOS DE SIEMPRE. NUNCA COMO SIEMPRE.</p>
+              <p className="eyebrow">02 / ENCUENTROS INESPERADOS</p>
               <h2>
-                El equipo <em>original.</em>
+                No todos los héroes
+                <br />
+                <em>son de este planeta.</em>
               </h2>
             </div>
             <a href="#explorar" className="text-link">
-              Ver el archivo completo <IoArrowForward />
+              Ver todos los personajes <IoArrowForward />
             </a>
           </div>
           <Carousel label="Personajes destacados">
-            {data.results.slice(0, 7).map((character) => (
+            {data.results.slice(5, 13).map((character) => (
               <CharacterCard key={character.id} character={character} />
             ))}
           </Carousel>
         </section>
         <Explorer initial={data} />
-        <section className="closing-banner shell">
-          <div>
-            <p className="eyebrow">HAY OTRO UNIVERSO ESPERANDO</p>
-            <h2>
-              ¿Y si tu próxima aventura
+        <section className="universe-crossover shell">
+          <div className="crossover-orbit" aria-hidden="true">
+            <IoPlanetOutline />
+            <span>
+              OTRO UNIVERSO
               <br />
-              empieza en una <em>Pokédex?</em>
-            </h2>
+              TE ESTÁ ESPERANDO
+            </span>
           </div>
-          <Link href="/pokemon" className="button button-lime">
-            Explorar Pokémon <IoArrowForward />
-          </Link>
+          <div>
+            <p className="eyebrow">LA AVENTURA NO TERMINA AQUÍ</p>
+            <h2>
+              Un portal.
+              <br />
+              <em>Otro mundo.</em>
+            </h2>
+            <p>
+              Del multiverso a Kanto. Descubre los 151 Pokémon originales en
+              nuestro segundo archivo.
+            </p>
+            <Link href="/pokemon" className="button button-lime">
+              Abrir la Pokédex <IoArrowForward />
+            </Link>
+          </div>
+          <span className="crossover-star" aria-hidden="true">
+            ✳
+          </span>
         </section>
       </main>
       <Footer />

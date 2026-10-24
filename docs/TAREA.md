@@ -1,6 +1,6 @@
 # Tarea · Aplicación de Rick y Morty
 
-Se desarrolló Portal 137 en el mismo proyecto del laboratorio, manteniendo la Pokédex. La portada combina una presentación animada, personajes destacados en carrusel y un explorador con filtros.
+Se desarrolló Portal 137 en el mismo proyecto del laboratorio, manteniendo la Pokédex. La portada utiliza un universo ilustrado original, un portal cinematográfico, un selector interactivo de protagonistas, personajes destacados en carrusel y un explorador con filtros. La dirección visual y los recursos están documentados en [ASSETS.md](ASSETS.md).
 
 ## Cumplimiento de la consigna
 
@@ -25,9 +25,17 @@ Se desarrolló Portal 137 en el mismo proyecto del laboratorio, manteniendo la P
 
 ![Portada de Portal 137](screenshots/portada.png)
 
+### Selector interactivo de protagonistas
+
+![Selector de protagonistas](screenshots/protagonistas.png)
+
+### Catálogo
+
+![Catálogo de personajes](screenshots/catalogo.png)
+
 ### Filtros combinados
 
-![Búsqueda de Rick vivo y masculino](screenshots/busqueda.png)
+![Búsqueda de Rick con estado vivo](screenshots/busqueda.png)
 
 ### Detalle y episodios
 

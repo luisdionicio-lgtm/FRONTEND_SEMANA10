@@ -53,7 +53,7 @@ export default async function CharacterDetail({
   ];
   return (
     <div
-      className="portal-site antialiased selection:bg-lime-300 selection:text-black"
+      className="portal-site portal-v2 antialiased selection:bg-lime-300 selection:text-black"
       id="top"
     >
       <Header />

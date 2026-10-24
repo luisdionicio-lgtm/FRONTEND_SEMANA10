@@ -15,19 +15,22 @@ export default async function Characters() {
   const data = await getCharacterPage();
   return (
     <div
-      className="portal-site antialiased selection:bg-lime-300 selection:text-black"
+      className="portal-site portal-v2 antialiased selection:bg-lime-300 selection:text-black"
       id="top"
     >
       <Header />
       <main className="catalog-main">
         <div className="shell catalog-intro">
-          <p className="eyebrow">EXPEDIENTES DEL MULTIVERSO</p>
+          <p className="eyebrow">/ BASE DE DATOS INTERDIMENSIONAL</p>
           <h1>
-            Todos tienen <em>una historia.</em>
+            Ninguno es normal. <em>Todos están aquí.</em>
           </h1>
-          <p>Encuentra la tuya entre {data.info.count} personajes.</p>
+          <p>
+            Explora {data.info.count} personajes. Encuentra tu siguiente
+            descubrimiento.
+          </p>
         </div>
-        <Explorer initial={data} />
+        <Explorer initial={data} showHeading={false} />
       </main>
       <Footer />
     </div>

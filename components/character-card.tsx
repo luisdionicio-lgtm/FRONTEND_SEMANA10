@@ -19,7 +19,7 @@ export default function CharacterCard({ character }: { character: Character }) {
   return (
     <Link
       href={`/personajes/${character.id}`}
-      className="character-card"
+      className={`character-card character-${character.status.toLowerCase()}`}
       prefetch={false}
     >
       <div className="card-image">
@@ -31,6 +31,7 @@ export default function CharacterCard({ character }: { character: Character }) {
           loading="lazy"
           sizes="(max-width: 600px) 90vw, (max-width: 1000px) 45vw, 23vw"
         />
+        <span className="card-scan" aria-hidden="true" />
         <span className="card-id">
           #{String(character.id).padStart(3, "0")}
         </span>

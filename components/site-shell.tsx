@@ -1,4 +1,5 @@
 import Link from "next/link";
+import MotionToggle from "./motion-toggle";
 import { IoPlanetOutline, IoArrowUpOutline } from "react-icons/io5";
 
 export function Header() {
@@ -18,6 +19,7 @@ export function Header() {
             Pokédex <span aria-hidden="true">↗</span>
           </Link>
         </nav>
+        <MotionToggle />
         <span className="nav-status">
           <i /> Multiverso conectado
         </span>

@@ -13,7 +13,13 @@ import CharacterCard from "./character-card";
 type Filters = { name: string; status: string; type: string; gender: string };
 const empty: Filters = { name: "", status: "", type: "", gender: "" };
 
-export default function Explorer({ initial }: { initial: CharacterResponse }) {
+export default function Explorer({
+  initial,
+  showHeading = true,
+}: {
+  initial: CharacterResponse;
+  showHeading?: boolean;
+}) {
   const [filters, setFilters] = useState<Filters>(empty);
   const [page, setPage] = useState(1);
   const [result, setResult] = useState(initial);
@@ -76,20 +82,23 @@ export default function Explorer({ initial }: { initial: CharacterResponse }) {
     <section
       id="explorar"
       className="explorer shell"
-      aria-labelledby="explore-title"
+      aria-labelledby={showHeading ? "explore-title" : undefined}
+      aria-label={showHeading ? undefined : "Explorar personajes"}
     >
-      <div className="section-heading">
-        <div>
-          <p className="eyebrow">ARCHIVO INTERDIMENSIONAL</p>
-          <h2 id="explore-title">
-            Encuentra tu próximo <em>personaje.</em>
-          </h2>
+      {showHeading && (
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">ARCHIVO INTERDIMENSIONAL</p>
+            <h2 id="explore-title">
+              Encuentra tu próximo <em>personaje.</em>
+            </h2>
+          </div>
+          <p>
+            De la Tierra a los rincones más extraños
+            <br className="desktop-break" /> del multiverso. Todos están aquí.
+          </p>
         </div>
-        <p>
-          De la Tierra a los rincones más extraños
-          <br className="desktop-break" /> del multiverso. Todos están aquí.
-        </p>
-      </div>
+      )}
       <form
         className="filter-panel"
         onSubmit={(event) => event.preventDefault()}
