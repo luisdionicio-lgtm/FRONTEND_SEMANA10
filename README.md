@@ -1,5 +1,9 @@
 # Portal 137 · Frontend Semana 10
 
+**Aplicación desplegada en Vercel:** [Abrir Portal 137](https://frontend-semana10.vercel.app/)
+
+**Pokédex del ejercicio 1:** [Abrir Pokédex](https://frontend-semana10.vercel.app/pokemon)
+
 Explorador de Rick y Morty con búsqueda en tiempo real, fichas completas, animaciones y carruseles. Incluye también la Pokédex del ejercicio 1.
 
 ## Ejecutar
