@@ -1,0 +1,15 @@
+npm notice run next-ssg-isr-app@0.1.0 verify
+npm notice run node scripts/verify.mjs
+OK page /
+OK page /personajes
+OK page /personajes/1
+OK page /personajes/826
+OK page /pokemon
+OK page /pokemon/pikachu
+OK search name=rick 107
+OK search status=dead 287
+OK search gender=female 148
+OK search type=robot 5
+OK search name=rick&status=alive&gender=male 27
+OK search page=2 826
+OK empty results, invalid inputs, 404, security headers, SSR and 826 SSG/ISR routes

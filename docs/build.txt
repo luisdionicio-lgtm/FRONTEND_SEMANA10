@@ -1,0 +1,38 @@
+npm notice run next-ssg-isr-app@0.1.0 build
+npm notice run next build
+▲ Next.js 16.4.3 (Turbopack)
+✓ Running next.config.ts took 11ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 408ms
+  Running TypeScript ...
+  Finished TypeScript in 678ms ...
+  Collecting page data using 9 workers ...
+  Generating static pages using 9 workers (0/984) ...
+  Generating static pages using 9 workers (246/984)
+  Generating static pages using 9 workers (492/984)
+  Generating static pages using 9 workers (738/984)
+✓ Generating static pages using 9 workers (984/984) in 1964ms
+  Finalizing page optimization ...
+
+Route (app)               Revalidate  Expire
+┌ ƒ /
+├ ○ /_not-found
+├ ƒ /api/characters
+├ ○ /personajes                  10d      1y
+├   /personajes/[id]
+│ ├ ● /personajes/1              10d      1y
+│ ├ ● /personajes/2              10d      1y
+│ ├ ● /personajes/3              10d      1y
+│ └ ● [+823 more paths]
+├ ○ /pokemon                      1d      1y
+└   /pokemon/[name]
+  ├ ● /pokemon/bulbasaur          1d      1y
+  ├ ● /pokemon/ivysaur            1d      1y
+  ├ ● /pokemon/venusaur           1d      1y
+  └ ● [+148 more paths]
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
